@@ -5,6 +5,7 @@ A very simple logging library for node.js
 ## Features
 
 * Supports the **%s** format string - use it for every argument. If the parameter is not a string, it is converted to one using String(object)
+
 * Prints:
    * Timestamp
    * Log Statement Severity
@@ -12,6 +13,20 @@ A very simple logging library for node.js
    * Constructor name
    * Function name
    * Line number
+
+* A logger object (returned by getLogger) supports the following methods:
+   * trace
+   * debug
+   * info
+   * warn
+   * error
+   * fatal
+   * getLevel(): Returns the currently set log level
+   * setLevel(levelString): Sets the current log level
+
+* *trace* is the most verbose log level and *fatal* is the least. If 
+  you set the log level to *info*, then all log statements between 
+  levels *fatal* and *info* (both inclusive) will be logged.
 
 ## Example usage
 
