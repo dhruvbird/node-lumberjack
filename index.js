@@ -46,7 +46,7 @@ function getNumericPriority(level) {
     if (pos == -1) {
         throw new Error("Level should be one of: " + levelNames);
     }
-    return levelNames[pos];
+    return levelPriorities[pos];
 }
 
 function getModuleInfo(moduleName) {
@@ -85,7 +85,8 @@ Logger.prototype._getLoggingFunction =
         var _priority    = getNumericPriority(loggingLevelName);
 
         return function(formatString) {
-            if (_priority < this._priority) {
+            // console.log(_priority, this._priority);
+            if (_priority > this._priority) {
                 return;
             }
             var message = sprintf.apply(null, arguments);
@@ -104,17 +105,5 @@ function getLogger(moduleName, level) {
     moduleName = moduleName || 'UNKNOWN';
     return new Logger(moduleName, level || 'info');
 }
-
-function test() {
-    var log = getLogger("index.js", 'Debug');
-    log.info("Line 1");
-    log.warn("Line %s", 2);
-    log.debug("%srd line", 3);
-    log.error("4th Line comes here");
-    log.trace("Trac%s on th %sth line", "ing", 5);
-    log.debug("Insuffici%sent parameters passed");
-}
-
-// test();
 
 exports.getLogger = getLogger;
