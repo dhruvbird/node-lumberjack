@@ -1,4 +1,4 @@
-# lumberjack
+# node-lumberjack
 
 A very simple logging library for node.js
 
@@ -18,13 +18,13 @@ A very simple logging library for node.js
 ```javascript
 var path     = require('path');
 var filename = path.basename(path.normalize(__filename))
-var log      = require('lumberjack').getLogger(filename, 'fatal');
+var log      = require('node-lumberjack').getLogger(filename, 'fatal');
 
 log.info("Line 1");
 log.warn("Line %s", 2);
 ```
 
-See the file [test.js](https://github.com/dhruvbird/lumberjack/blob/master/test.js) for a complete example on how to use this library.
+See the file [test.js](https://github.com/dhruvbird/node-lumberjack/blob/master/test.js) for a complete example on how to use this library.
 
 ## Example output
 
@@ -36,7 +36,7 @@ See the file [test.js](https://github.com/dhruvbird/lumberjack/blob/master/test.
 [2012-06-10 12:14:23.360] [TRACE] [test.js:test:11] - Tracing on the 5th line
 ```
 
-Lumberjack prints the module name, constructor name, function name and the line number on which the logging function was called. Here is an example:
+node-lumberjack prints the module name, constructor name, function name and the line number on which the logging function was called. Here is an example:
 
 ```
 [2012-06-10 12:14:23.362] [TRACE] [test.js:CtorName.functionName:20] - You should see the object & function name on this line

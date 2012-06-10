@@ -1,5 +1,5 @@
 {
-  "name": "lumberjack",
+  "name": "node-lumberjack",
   "version": "0.0.1",
   "main": "./index.js",
   "description": "A very simple logging library for node.js",
@@ -10,11 +10,11 @@
   "repositories": [
     {
       "type": "git",
-      "path": "git://github.com/dhruvbird/lumberjack.git"
+      "path": "git://github.com/dhruvbird/node-lumberjack.git"
     }
   ],
-  "homepage": "https://github.com/dhruvbird/lumberjack",
-  "bugs": "https://github.com/dhruvbird/lumberjack/issues",
+  "homepage": "https://github.com/dhruvbird/node-lumberjack",
+  "bugs": "https://github.com/dhruvbird/node-lumberjack/issues",
   "maintainers": [
     {
       "name": "Dhruv Matani",

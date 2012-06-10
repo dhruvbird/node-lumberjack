@@ -9,7 +9,7 @@ function arguments_to_array(args) {
 }
 
 function pluralize(n, suffix) {
-	return n == 1 ? suffix : suffix + 's';
+    return n == 1 ? suffix : suffix + 's';
 }
 
 function sprintf(formatString) {
