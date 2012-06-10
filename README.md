@@ -4,7 +4,7 @@ A very simple logging library for node.js
 
 ## Features
 
-* Supports the **%s% format string - use it for every argument. If the parameter is not a string, it is converted to one using String(object)
+* Supports the **%s** format string - use it for every argument. If the parameter is not a string, it is converted to one using String(object)
 * Prints:
    * Timestamp
    * Log Statement Severity
