@@ -1,20 +1,20 @@
 {
-  "name": "nlog",
+  "name": "lumberjack",
   "version": "0.0.1",
   "main": "./index.js",
   "description": "A very simple logging library for node.js",
   "author": "Dhruv Matani",
   "dependencies": {
-    "underscore": "= 1.1.5",
+    "underscore": "= 1.1.5"
   },
   "repositories": [
     {
       "type": "git",
-      "path": "git://github.com/dhruvbird/nlog.git"
+      "path": "git://github.com/dhruvbird/lumberjack.git"
     }
   ],
-  "homepage": "https://github.com/dhruvbird/nlog",
-  "bugs": "https://github.com/dhruvbird/nlog/issues",
+  "homepage": "https://github.com/dhruvbird/lumberjack",
+  "bugs": "https://github.com/dhruvbird/lumberjack/issues",
   "maintainers": [
     {
       "name": "Dhruv Matani",
