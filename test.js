@@ -3,7 +3,7 @@ var filename   = path.basename(path.normalize(__filename))
 var lumberjack = require('./index.js')
 
 function test() {
-    var log = lumberjack.getLogger(filename, 'fatal');
+    var log = lumberjack.getLogger(filename, 'trace');
     log.info("Line 1");
     log.warn("Line %s", 2);
     log.debug("%srd line", 3);
@@ -24,6 +24,10 @@ function test() {
     var x = new CtorName();
     x.functionName();
 
+    lumberjack.setGlobalLogLevel('info');
+    // console.log("Current Log Level:", log.getLevel());
+    log.trace("Should NOT print this");
+    log.info("Should print this");
 }
 
 test();

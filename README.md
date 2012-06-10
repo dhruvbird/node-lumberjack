@@ -33,7 +33,7 @@ A very simple logging library for node.js
 ```javascript
 var path     = require('path');
 var filename = path.basename(path.normalize(__filename))
-var log      = require('node-lumberjack').getLogger(filename, 'fatal');
+var log      = require('node-lumberjack').getLogger(filename, 'trace');
 
 log.info("Line 1");
 log.warn("Line %s", 2);

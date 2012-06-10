@@ -3,6 +3,8 @@ var us   = require('underscore');
 
 var levelNames = 'trace debug info warn error fatal'.split(' ');
 var levelPriorities = [ 100, 200, 300, 400, 500, 600 ];
+var loggerInstances = [ ];
+var globalLogLevel = 'info';
 
 function arguments_to_array(args) {
     return Array.prototype.slice.call(args, 0);
@@ -58,8 +60,8 @@ function getModuleInfo(moduleName) {
     if (stackTraceLines.length < 5) {
         return moduleName;
     }
-    var location = stackTraceLines[4].match(lineNoRE);
-    var caller = stackTraceLines[4].match(functionNameRE);
+    var location = stackTraceLines[3].match(lineNoRE);
+    var caller = stackTraceLines[3].match(functionNameRE);
     location = location ? location[1] : '00';
     caller   = caller ? caller[1] : 'UNKNOWN';
     return moduleName + ":" + caller + ":" + location;
@@ -90,7 +92,7 @@ Logger.prototype._getLoggingFunction =
 
         return function(formatString) {
             // console.log(_priority, this._priority);
-            if (_priority > this._priority) {
+            if (_priority < this._priority) {
                 return;
             }
             var message = sprintf.apply(null, arguments);
@@ -102,12 +104,24 @@ Logger.prototype._getLoggingFunction =
             process.stdout.write(prefix);
             process.stdout.write(message);
             process.stdout.write("\n");
-        }.bind(this);
+        };
     };
 
 function getLogger(moduleName, level) {
     moduleName = moduleName || 'UNKNOWN';
-    return new Logger(moduleName, level || 'info');
+    var loggerInstance = new Logger(moduleName, level || globalLogLevel);
+    loggerInstances.push(loggerInstance);
+    return loggerInstance;
 }
 
-exports.getLogger = getLogger;
+function setGlobalLogLevel(level) {
+    // Sanity-Check the log level
+    getNumericPriority(level);
+
+    loggerInstances.forEach(function(loggerInstance, i) {
+        loggerInstance.setLevel(level);
+    });
+}
+
+exports.getLogger         = getLogger;
+exports.setGlobalLogLevel = setGlobalLogLevel;
