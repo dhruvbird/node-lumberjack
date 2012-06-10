@@ -4,7 +4,7 @@ A very simple logging library for node.js
 
 ## Example usage
 
-```
+```javascript
 var path     = require('path');
 var filename = path.basename(path.normalize(__filename))
 var log      = require('lumberjack').getLogger(filename, 'fatal');
