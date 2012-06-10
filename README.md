@@ -2,6 +2,17 @@
 
 A very simple logging library for node.js
 
+## Features
+
+* Supports the **%s% format string - use it for every argument. If the parameter is not a string, it is converted to one using String(object)
+* Prints:
+   * Timestamp
+   * Log Statement Severity
+   * Module Name
+   * Constructor name
+   * Function name
+   * Line number
+
 ## Example usage
 
 ```javascript
@@ -15,7 +26,7 @@ log.warn("Line %s", 2);
 
 See the file [test.js](https://github.com/dhruvbird/lumberjack/blob/master/test.js) for a complete example on how to use this library.
 
-### Example output
+## Example output
 
 ```
 [2012-06-10 12:14:23.350] [INFO] [test.js:test:7] - Line 1
