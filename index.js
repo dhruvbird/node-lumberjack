@@ -49,13 +49,17 @@ function getNumericPriority(level) {
     return levelPriorities[pos];
 }
 
+var lineNoRE = /:([0-9]+):([0-9]+)\)$/;
+var functionNameRE = /at\ ([^\ ]+)\ /;
+var newLineRE = /\n/;
+
 function getModuleInfo(moduleName) {
-    var stackTraceLines = new Error().stack.split('\n');
+    var stackTraceLines = new Error().stack.split(newLineRE);
     if (stackTraceLines.length < 5) {
         return moduleName;
     }
-    var location = stackTraceLines[4].match(/:([0-9]+):([0-9]+)\)$/);
-    var caller = stackTraceLines[4].match(/at\ ([^\ ]+)\ /);
+    var location = stackTraceLines[4].match(lineNoRE);
+    var caller = stackTraceLines[4].match(functionNameRE);
     location = location ? location[1] : '00';
     caller   = caller ? caller[1] : 'UNKNOWN';
     return moduleName + ":" + caller + ":" + location;
