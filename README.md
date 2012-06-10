@@ -2,7 +2,18 @@
 
 A very simple logging library for node.js
 
-See the file test.js for an example on how to use this library
+## Example usage
+
+```
+var path     = require('path');
+var filename = path.basename(path.normalize(__filename))
+var log      = require('lumberjack').getLogger(filename, 'fatal');
+
+log.info("Line 1");
+log.warn("Line %s", 2);
+```
+
+See the file [test.js](https://github.com/dhruvbird/lumberjack/blob/master/test.js) for a complete example on how to use this library.
 
 ### Example output
 
