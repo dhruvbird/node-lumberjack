@@ -24,7 +24,8 @@ function test() {
     var x = new CtorName();
     x.functionName();
 
-    lumberjack.setGlobalLogLevel('info');
+    lumberjack.setGlobalLogLevel('debug');
+    log = lumberjack.getLogger(filename, 'info');
     // console.log("Current Log Level:", log.getLevel());
     log.trace("Should NOT print this");
     log.info("Should print this");

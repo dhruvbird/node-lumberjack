@@ -4,6 +4,7 @@ var us   = require('underscore');
 var levelNames = 'trace debug info warn error fatal'.split(' ');
 var levelPriorities = [ 100, 200, 300, 400, 500, 600 ];
 var loggerInstances = [ ];
+var loggerByModuleName = { };
 var globalLogLevel = 'info';
 
 function arguments_to_array(args) {
@@ -109,7 +110,14 @@ Logger.prototype._getLoggingFunction =
 
 function getLogger(moduleName, level) {
     moduleName = moduleName || 'UNKNOWN';
-    var loggerInstance = new Logger(moduleName, level || globalLogLevel);
+    level = level || globalLogLevel;
+    if (loggerByModuleName.hasOwnProperty(moduleName)) {
+        var loggerInstance = loggerByModuleName[moduleName];
+        loggerInstance.setLevel(level);
+        return loggerInstance;
+    }
+    var loggerInstance = new Logger(moduleName, level);
+    loggerByModuleName[moduleName] = loggerInstance;
     loggerInstances.push(loggerInstance);
     return loggerInstance;
 }
