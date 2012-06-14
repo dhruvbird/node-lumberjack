@@ -16,13 +16,17 @@ function test() {
     }
 
     function CtorName() {
-        this.functionName = function functionName() {
+        this.functionName = function() {
             log.trace("You should see the object & function name on this line");
+        }
+        this.otherProc = function notSameAsMemberName() {
+            log.trace("You should see the object & function name on this line too");
         }
     }
 
     var x = new CtorName();
     x.functionName();
+    x.otherProc();
 
     lumberjack.setGlobalLogLevel('debug');
     log = lumberjack.getLogger(filename, 'info');
