@@ -28,6 +28,10 @@ A very simple logging library for node.js
   you set the log level to *info*, then all log statements between 
   levels *fatal* and *info* (both inclusive) will be logged.
 
+* More generally, if you set the logging level to **X**, then all log
+  statements between *fatal* and *X* (both inclusive) will be logged.
+
+
 ## Caveats
 
 The performance of *node-lumberjack* (or any logging module that shows
