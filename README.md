@@ -28,6 +28,26 @@ A very simple logging library for node.js
   you set the log level to *info*, then all log statements between 
   levels *fatal* and *info* (both inclusive) will be logged.
 
+## Caveats
+
+The performance of *node-lumberjack* (or any logging module that shows
+the line number/module name/function name) is going to be worse than
+that of a logging module that does not. This difference is pretty
+pronounced if you indulge in *a lot* of logging. By a *lot* of
+logging, I mean many calls to one of the logging functions rather than
+logging a lot of data per line. In some simple tests I ran, the
+performance difference was 3 sec without printing line numbers and 15
+sec with them. This is a **5x** difference, and you might not want to
+pay this penalty.
+
+*node-lumberjack* does NOT currently give you an option to turn off
+ line numbers since I feel that line numbers and crucial to help in
+ debugging errors (which is one of the major use-cases for
+ logging). If you do not wish to pay this penalty, choose an
+ appropriate logging module from [this
+ list](https://github.com/joyent/node/wiki/modules#wiki-logs)
+
+
 ## Example usage
 
 ```javascript
