@@ -45,7 +45,7 @@ pay this penalty.
  debugging errors (which is one of the major use-cases for
  logging). If you do not wish to pay this penalty, choose an
  appropriate logging module from [this
- list](https://github.com/joyent/node/wiki/modules#wiki-logs)
+ list](https://github.com/joyent/node/wiki/modules#wiki-logs).
 
 
 ## Example usage
