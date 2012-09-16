@@ -45,7 +45,7 @@ sec with them. This is a **5x** difference, and you might not want to
 pay this penalty.
 
 *node-lumberjack* does NOT currently give you an option to turn off
- line numbers since I feel that line numbers and crucial to help in
+ line numbers since I feel that line numbers are crucial to help in
  debugging errors (which is one of the major use-cases for
  logging). If you do not wish to pay this penalty, choose an
  appropriate logging module from [this
